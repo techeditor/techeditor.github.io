@@ -628,10 +628,11 @@ a.text-grey {
   gap: 0.3rem;
 }
 
+/*Revised*/
 .wrap-header.h1wrap {
   text-align: center;
-  margin-top: 4.6rem;
-  margin-bottom: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .wrap-header.h1wrap .wrap-body {
