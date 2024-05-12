@@ -361,9 +361,12 @@ body.home .h2wrap > h2::after {
 body.home .h1wrap .wrap-body p + p {
   margin-top: 1.6rem;
 }
+
+/* Override
 body.home .h1wrap .wrap-body p {
   text-indent: 2rem;
 }
+*/
 
 body:not(.home) .h2wrap > .wrap-body > ul {
   list-style: initial;
@@ -1529,4 +1532,9 @@ body.search {
   .home-card {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+/*Add*/
+.wrap-body p{
+  margin-bottom: 16px;
 }
