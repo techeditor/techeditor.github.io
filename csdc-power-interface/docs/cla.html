@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark">
+<head>
+<meta charset="utf-8">
+<title>Clickstream Analytics on Amazon Web Services&#x3C;br>
+点击流分析解决方案
+ &#x26;  cla cheatsheet &#x26;  CSDC Pi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta description="CSDC Power Interface">
+<meta keywords="cla,CSDC, Solution, Amazon Web Services">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%221em%22%20width%3D%221em%22%3E%20%3Cpath%20d%3D%22m21.66%2010.44-.98%204.18c-.84%203.61-2.5%205.07-5.62%204.77-.5-.04-1.04-.13-1.62-.27l-1.68-.4c-4.17-.99-5.46-3.05-4.48-7.23l.98-4.19c.2-.85.44-1.59.74-2.2%201.17-2.42%203.16-3.07%206.5-2.28l1.67.39c4.19.98%205.47%203.05%204.49%207.23Z%22%20fill%3D%22%23c9d1d9%22%2F%3E%20%3Cpath%20d%3D%22M15.06%2019.39c-.62.42-1.4.77-2.35%201.08l-1.58.52c-3.97%201.28-6.06.21-7.35-3.76L2.5%2013.28c-1.28-3.97-.22-6.07%203.75-7.35l1.58-.52c.41-.13.8-.24%201.17-.31-.3.61-.54%201.35-.74%202.2l-.98%204.19c-.98%204.18.31%206.24%204.48%207.23l1.68.4c.58.14%201.12.23%201.62.27Zm2.43-8.88c-.06%200-.12-.01-.19-.02l-4.85-1.23a.75.75%200%200%201%20.37-1.45l4.85%201.23a.748.748%200%200%201-.18%201.47Z%22%20fill%3D%22%23228e6c%22%20%2F%3E%20%3Cpath%20d%3D%22M14.56%2013.89c-.06%200-.12-.01-.19-.02l-2.91-.74a.75.75%200%200%201%20.37-1.45l2.91.74c.4.1.64.51.54.91-.08.34-.38.56-.72.56Z%22%20fill%3D%22%23228e6c%22%20%2F%3E%20%3C%2Fsvg%3E" type="image/svg+xml">
+<link rel="stylesheet" href="..\style\style.css">
+<link rel="stylesheet" href="..\style\katex.css">
+</head>
+<body><nav class="header-nav"><div class="max-container"><a href="..\index.html" class="logo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" height="1em" width="1em">
+  <path d="m21.66 10.44-.98 4.18c-.84 3.61-2.5 5.07-5.62 4.77-.5-.04-1.04-.13-1.62-.27l-1.68-.4c-4.17-.99-5.46-3.05-4.48-7.23l.98-4.19c.2-.85.44-1.59.74-2.2 1.17-2.42 3.16-3.07 6.5-2.28l1.67.39c4.19.98 5.47 3.05 4.49 7.23Z" fill="#c9d1d9"></path>
+  <path d="M15.06 19.39c-.62.42-1.4.77-2.35 1.08l-1.58.52c-3.97 1.28-6.06.21-7.35-3.76L2.5 13.28c-1.28-3.97-.22-6.07 3.75-7.35l1.58-.52c.41-.13.8-.24 1.17-.31-.3.61-.54 1.35-.74 2.2l-.98 4.19c-.98 4.18.31 6.24 4.48 7.23l1.68.4c.58.14 1.12.23 1.62.27Zm2.43-8.88c-.06 0-.12-.01-.19-.02l-4.85-1.23a.75.75 0 0 1 .37-1.45l4.85 1.23a.748.748 0 0 1-.18 1.47Z" fill="#228e6c"></path>
+  <path d="M14.56 13.89c-.06 0-.12-.01-.19-.02l-2.91-.74a.75.75 0 0 1 .37-1.45l2.91.74c.4.1.64.51.54.91-.08.34-.38.56-.72.56Z" fill="#228e6c"></path>
+</svg>
+<span class="title">CSDC Pi</span></a><div class="menu"><a href="javascript:void(0);" class="searchbtn" id="searchbtn"><svg xmlns="http://www.w3.org/2000/svg" height="1em" width="1em" viewBox="0 0 18 18">
+  <path fill="currentColor" d="M17.71,16.29 L14.31,12.9 C15.4069846,11.5024547 16.0022094,9.77665502 16,8 C16,3.581722 12.418278,0 8,0 C3.581722,0 0,3.581722 0,8 C0,12.418278 3.581722,16 8,16 C9.77665502,16.0022094 11.5024547,15.4069846 12.9,14.31 L16.29,17.71 C16.4777666,17.8993127 16.7333625,18.0057983 17,18.0057983 C17.2666375,18.0057983 17.5222334,17.8993127 17.71,17.71 C17.8993127,17.5222334 18.0057983,17.2666375 18.0057983,17 C18.0057983,16.7333625 17.8993127,16.4777666 17.71,16.29 Z M2,8 C2,4.6862915 4.6862915,2 8,2 C11.3137085,2 14,4.6862915 14,8 C14,11.3137085 11.3137085,14 8,14 C4.6862915,14 2,11.3137085 2,8 Z"></path>
+</svg><span>搜索</span><span>⌘K</span></a><button id="darkMode" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="light" height="1em" width="1em">
+  <path d="M6.995 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007-2.246-5.007-5.007-5.007S6.995 9.239 6.995 12zM11 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2H2zm17 0h3v2h-3zM5.637 19.778l-1.414-1.414 2.121-2.121 1.414 1.414zM16.242 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.344 7.759 4.223 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z"></path>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="dark" height="1em" width="1em">
+  <path d="M12 11.807A9.002 9.002 0 0 1 10.049 2a9.942 9.942 0 0 0-5.12 2.735c-3.905 3.905-3.905 10.237 0 14.142 3.906 3.906 10.237 3.905 14.143 0a9.946 9.946 0 0 0 2.735-5.119A9.003 9.003 0 0 1 12 11.807z"></path>
+</svg>
+</button><script src="../js/dark.js?v=1.5.3"></script></div></div></nav><div class="wrap h1body-exist max-container"><header class="wrap-header h1wrap"><h1 id="clickstream-analytics-on-amazon-web-services点击流分析解决方案"><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1em" width="1em">
+  <path d="M107.946667 838.4l57.173333 23.893333v-385.28l-103.68 250.026667c-17.493333 43.52 3.413333 93.44 46.506667 111.36z m832-157.866667L728.32 169.813333a85.888 85.888 0 0 0-77.226667-52.48c-11.093333 0-22.613333 1.706667-33.706666 6.4L302.933333 253.866667a85.290667 85.290667 0 0 0-46.08 110.933333l211.626667 510.72a85.248 85.248 0 0 0 110.933333 46.08l314.026667-130.133333a85.077333 85.077333 0 0 0 46.506667-110.933334zM336.213333 373.333333c-23.466667 0-42.666667-19.2-42.666666-42.666666s19.2-42.666667 42.666666-42.666667 42.666667 19.2 42.666667 42.666667-19.2 42.666667-42.666667 42.666666z m-85.333333 469.333334c0 46.933333 38.4 85.333333 85.333333 85.333333h61.866667l-147.2-355.84v270.506667z"></path>
+</svg><a aria-hidden="true" tabindex="-1" href="#clickstream-analytics-on-amazon-web-services点击流分析解决方案"><span class="icon icon-link"></span></a>Clickstream Analytics on Amazon Web Services<br>
+点击流分析解决方案</h1><div class="wrap-body">
+</div></header><div class="menu-tocs"><div class="menu-btn"><svg aria-hidden="true" fill="currentColor" height="1em" width="1em" viewBox="0 0 16 16" version="1.1" data-view-component="true">
+  <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+</svg></div><div class="menu-modal"><a aria-hidden="true" class="leve2 tocs-link" data-num="2" href="#基本信息">基本信息</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#属性">属性</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#主要行业">主要行业</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#主要业务场景">主要业务场景</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#技术领域">技术领域</a><a aria-hidden="true" class="leve2 tocs-link" data-num="2" href="#业务介绍">业务介绍</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#背景">背景</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#适用客户">适用客户</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#适用场景">适用场景</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#用户行为分析">用户行为分析</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#产品分析">产品分析</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#营销分析">营销分析</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#综合应用">综合应用</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#客户痛点">客户痛点</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#客户价值">客户价值</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#加速构建">加速构建</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#完全自主的数据所有权">完全自主的数据所有权</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#优化成本效益">优化成本效益</a><a aria-hidden="true" class="leve2 tocs-link" data-num="2" href="#技术介绍">技术介绍</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#概要">概要</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#特点">特点</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#可视化的数据管道生成">可视化的数据管道生成</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#专门构建的sdk">专门构建的SDK</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#开箱即用的仪表板">开箱即用的仪表板</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#主要服务">主要服务</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#部署前提条件">部署前提条件</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#客户资源能力评估">客户资源/能力评估</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#成本因素">成本因素</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#交付资源">交付资源</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#架构图">架构图</a><a aria-hidden="true" class="leve2 tocs-link" data-num="2" href="#更新说明">更新说明</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#v110">v1.1.0</a><a aria-hidden="true" class="leve2 tocs-link" data-num="2" href="#相关信息">相关信息</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#联系人">联系人</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#资源">资源</a></div></div><div class="h1wrap-body"><div class="wrap h2body-exist"><div class="wrap-header h2wrap"><h2 id="基本信息"><a aria-hidden="true" tabindex="-1" href="#基本信息"><span class="icon icon-link"></span></a>基本信息</h2><div class="wrap-body">
+</div></div><div class="h2wrap-body"><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="属性"><a aria-hidden="true" tabindex="-1" href="#属性"><span class="icon icon-link"></span></a>属性</h3><div class="wrap-body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="left-align"><thead><tr><th align="left">:-</th><th align="left">:-</th></tr></thead><tbody><tr><td align="left">类型</td><td align="left">Solution</td></tr><tr><td align="left">状态</td><td align="left">正式发布</td></tr><tr><td align="left">一键部署</td><td align="left"><a href="https://www.amazonaws.cn/solutions/technology/analytics/clickstream-analytics-on-aws/" target="_blank">官网 (中国)</a><!--rehype:target=_blank--></td></tr><tr><td align="left">代码开源</td><td align="left"><a href="https://github.com/awslabs/clickstream-analytics-on-aws" target="_blank">GitHub Repo</a><!--rehype:target=_blank--></td></tr></tbody></table>
+<!--rehype:className=left-align-->
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="主要行业"><a aria-hidden="true" tabindex="-1" href="#主要行业"><span class="icon icon-link"></span></a>主要行业</h3><div class="wrap-body">
+<p>数据分析类的技术解决方案，本身无明显行业特征。对目标客户的判断主要看其业务属性、业务场景和业务发展阶段。</p>
+<p>因为点击流数据的主要来源是网站或应用程序的用户操作，所以本解决方案适合有to C业务的行业，例如：</p>
+<ul>
+<li>游戏</li>
+<li>电商</li>
+<li>社交媒体</li>
+</ul>
+<p>需要说明的是，产生点击流数据的“用户”不一定是自然人，也有可能是触发或产生事件的设备，例如IoT设备。从这方面看，点击流数据有日志数据的性质。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="主要业务场景"><a aria-hidden="true" tabindex="-1" href="#主要业务场景"><span class="icon icon-link"></span></a>主要业务场景</h3><div class="wrap-body">
+<ul>
+<li>点击流分析、埋点数据分析</li>
+<li>用户行为分析</li>
+<li>客户360</li>
+<li>营销分析</li>
+<li>客户数据平台</li>
+<li>产品分析</li>
+</ul>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="技术领域"><a aria-hidden="true" tabindex="-1" href="#技术领域"><span class="icon icon-link"></span></a>技术领域</h3><div class="wrap-body">
+<ul>
+<li>数据分析</li>
+</ul>
+</div></div></div></div></div><div class="wrap h2body-exist"><div class="wrap-header h2wrap"><h2 id="业务介绍"><a aria-hidden="true" tabindex="-1" href="#业务介绍"><span class="icon icon-link"></span></a>业务介绍</h2><div class="wrap-body">
+</div></div><div class="h2wrap-body"><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="背景"><a aria-hidden="true" tabindex="-1" href="#背景"><span class="icon icon-link"></span></a>背景</h3><div class="wrap-body">
+<p>点击流数据俗称埋点数据，是指在应用程序使用过程中与特定用户行为或事件关联的数据，例如用户点击图标的次数、观看视频的时长等。点击流数据在许多在线业务分析场景中起着关键作用，如用户行为分析、客户数据平台构建、产品分析和营销分析等。它可以洞察用户在网站或应用程序上的互动模式，帮助企业了解用户浏览路径、偏好和参与度，从而推动产品创新和优化营销资源投放。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="适用客户"><a aria-hidden="true" tabindex="-1" href="#适用客户"><span class="icon icon-link"></span></a>适用客户</h3><div class="wrap-body">
+<p>适用于各行业中管理和运营面向终端用户的App和网站的客户，特别是互联网、游戏、电商、社交媒体等行业。关键的决策人包括数据产品经理、数据平台负责人等。</p>
+</div></div></div><div class="wrap h3body-exist row-span-2"><div class="wrap-header h3wrap"><h3 id="适用场景"><a aria-hidden="true" tabindex="-1" href="#适用场景"><span class="icon icon-link"></span></a>适用场景</h3><div class="wrap-body">
+<!--rehype:wrap-class=row-span-2-->
+<p>该解决方案主要适用于以下业务场景。</p>
+<h4 id="用户行为分析"><a aria-hidden="true" tabindex="-1" href="#用户行为分析"><span class="icon icon-link"></span></a>用户行为分析</h4>
+<p>通过用户点击等操作产生的数据，可以深入了解用户在网站或App上的互动行为、跳转路径等，帮助企业了解活跃用户的规模、用户的偏好和参与度、用户转化率等指标，从而有针对性地改进产品功能和体验，推动产品创新，提高用户留存。</p>
+<h4 id="产品分析"><a aria-hidden="true" tabindex="-1" href="#产品分析"><span class="icon icon-link"></span></a>产品分析</h4>
+<p>为了验证产品某些新功能，考查用户的点击流数据，来了解用户对这些功能和特性的使用与接受程度，并发现造成阻碍的问题点在哪里，从而找到改进提升的方向。</p>
+<h4 id="营销分析"><a aria-hidden="true" tabindex="-1" href="#营销分析"><span class="icon icon-link"></span></a>营销分析</h4>
+<p>从不同营销活动或渠道来到网站或App的客户带有各自的标签，分析不同标签客户的点击流数据，了解各活动或渠道相关的用户流量、用户转化率、用户偏好等信息，从而评估营销活动与渠道的有效性，有针对性地优化营销策略，以提高转化率和ROI。</p>
+<h4 id="综合应用"><a aria-hidden="true" tabindex="-1" href="#综合应用"><span class="icon icon-link"></span></a>综合应用</h4>
+<p>将点击流数据与其他业务数据 (例如订单历史记录和用 户个人资料等) 结合，企业客户能够创建自有的用户数据平台，获得用户的完整视图，进而个性化用户体验、优化用户交互，并得到有针对性的营销建议。这类综合应用场景主要包括实时推荐系统、实时应用监控、实时风控系统等。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="客户痛点"><a aria-hidden="true" tabindex="-1" href="#客户痛点"><span class="icon icon-link"></span></a>客户痛点</h3><div class="wrap-body">
+<p>在构建点击流分析平台的过程中，客户常常要面对多种挑战：</p>
+<ul>
+<li>点击流数据收集和分析涉及多种技术栈和工具，客户必须学习和掌握多种亚马逊云科技的服务和开源工具，学习曲线较长；</li>
+<li>缺乏采集用户行为数据的专用SDK，摄取数据操作复杂；</li>
+<li>缺乏数据工程师，无法从点击流数据中快速获取有用的洞察；</li>
+<li>不了解云上点击流数据处理和分析的最佳实践，构建起的系统在安全和成本方面容易存在风险；</li>
+<li>缺乏相关的运维和监控工具。</li>
+</ul>
+</div></div></div><div class="wrap h3body-exist"><div class="wrap-header h3wrap"><h3 id="客户价值"><a aria-hidden="true" tabindex="-1" href="#客户价值"><span class="icon icon-link"></span></a>客户价值</h3><div class="wrap-body">
+<p>该解决方案对于客户业务的价值主要体现在以下方面。</p>
+<h4 id="加速构建"><a aria-hidden="true" tabindex="-1" href="#加速构建"><span class="icon icon-link"></span></a>加速构建</h4>
+<p>该方案将构建的时间从几周缩短为几分钟，使客户能够快速部署安全可靠、灵活可扩展的端到端数据管道，以支持摄取和处理数十亿条点击流数据，近实时地查询数据，并浏览开箱即用的用户生命周期报表。</p>
+<h4 id="完全自主的数据所有权"><a aria-hidden="true" tabindex="-1" href="#完全自主的数据所有权"><span class="icon icon-link"></span></a>完全自主的数据所有权</h4>
+<p>客户能将最细粒度的点击流数据存放到客户自己的亚马逊云科技账户中，可以随时查询、提取、共享和关联用户行为数据，用于多种分析场景，而不用担心在访问这些数据时受到限制。</p>
+<h4 id="优化成本效益"><a aria-hidden="true" tabindex="-1" href="#优化成本效益"><span class="icon icon-link"></span></a>优化成本效益</h4>
+<p>该方案采用无服务器的分析服务，可根据客户的数据量自动扩展，不需要预留任何资源。同时，该方案不收取许可费用，客户只需为实际使用的亚马逊云科技服务付费。</p>
+</div></div></div></div></div><div class="wrap h2body-exist"><div class="wrap-header h2wrap"><h2 id="技术介绍"><a aria-hidden="true" tabindex="-1" href="#技术介绍"><span class="icon icon-link"></span></a>技术介绍</h2><div class="wrap-body">
+</div></div><div class="h2wrap-body"><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="概要"><a aria-hidden="true" tabindex="-1" href="#概要"><span class="icon icon-link"></span></a>概要</h3><div class="wrap-body">
+<p>作为一个端到端的数据分析解决方案，它帮助客户轻松收集、处理、分析和可视化来自网页和移动应用程序 (App) 的点击流数据。使用该解决方案，客户可以快速部署和配置适合其业务与技术需求的点击流数据管道。该方案提供专用的SDK来收集用户行为，自动采集常见事件，并提供易于使用的API来上报自定义事件，从而使客户能轻松地将应用程序和网页中的用户行为数据发送到客户自己的亚马逊云科技账号中。该解决方案还提供一组预装的分析仪表板，将用户生命周期的关键指标可视化呈现，涵盖了新用户获取、用户参与度、用户行为事件和用户留存等视角，并提供了用户浏览路径、设备与地理来源等关键信息，帮助客户快速洞察用户行为，找到业务增长的机会。</p>
+</div></div></div><div class="wrap h3body-exist"><div class="wrap-header h3wrap"><h3 id="特点"><a aria-hidden="true" tabindex="-1" href="#特点"><span class="icon icon-link"></span></a>特点</h3><div class="wrap-body">
+<p>该解决方案主要具有以下特点：</p>
+<h4 id="可视化的数据管道生成"><a aria-hidden="true" tabindex="-1" href="#可视化的数据管道生成"><span class="icon icon-link"></span></a>可视化的数据管道生成</h4>
+<p>客户通过Web用户界面就可以轻松定义和配置点击流数据管道，该方案会负责创建和管理底层的基础设施，完成所需的安全设置和数据集成。每条数据管道包含收集、处理、分析和可视化等多种功能模块，采用松耦合设计，便于灵活地针对特定用例进行自定义，并利于优化成本。</p>
+<h4 id="专门构建的sdk"><a aria-hidden="true" tabindex="-1" href="#专门构建的sdk"><span class="icon icon-link"></span></a>专门构建的SDK</h4>
+<p>针对从Android、iOS和JavaScript平台收集数据的任务，优化了SDK，支持自动收集常见事件 (例如首次访问、屏幕查看等)，支持内置本地缓存、重试和验证机制，以确保数据传输的完整性。</p>
+<h4 id="开箱即用的仪表板"><a aria-hidden="true" tabindex="-1" href="#开箱即用的仪表板"><span class="icon icon-link"></span></a>开箱即用的仪表板</h4>
+<p>提供了十余个内置的可视化仪表板 (例如用户获取、用户参与度、用户留存等）和探索性报告模板 (例如用户详细信息、事件详细信息)，使企业能够快速开展用户行为分析、营销分析和产品分析。</p>
+</div></div></div><div class="wrap h3body-not-exist row-span-2"><div class="wrap-header h3wrap"><h3 id="主要服务"><a aria-hidden="true" tabindex="-1" href="#主要服务"><span class="icon icon-link"></span></a>主要服务</h3><div class="wrap-body">
+<!--rehype:wrap-class=row-span-2-->
+<ul>
+<li>Amazon API Gateway</li>
+<li>Amazon CloudFormation</li>
+<li>Amazon CloudFront</li>
+<li>Amazon Cognito</li>
+<li>Amazon DynamoDB</li>
+<li>Amazon Elastic Container Service (ECS)</li>
+<li>Amazon EMR Serverless</li>
+<li>Amazon EventBridge</li>
+<li>Amazon Lambda</li>
+<li>Amazon Managed Streaming for Kafka (MSK)</li>
+<li>Amazon Redshift</li>
+<li>Amazon S3</li>
+<li>Amazon Step Functions</li>
+<li>Amazon QuickSight</li>
+<li>Application Load Balancer (ALB)</li>
+</ul>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="部署前提条件"><a aria-hidden="true" tabindex="-1" href="#部署前提条件"><span class="icon icon-link"></span></a>部署前提条件</h3><div class="wrap-body">
+<p>在客户账户中至少有2个空闲的S3存储桶。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="客户资源能力评估"><a aria-hidden="true" tabindex="-1" href="#客户资源能力评估"><span class="icon icon-link"></span></a>客户资源/能力评估</h3><div class="wrap-body">
+<p>该方案提供前端操作界面，所以客户的数据团队、运维团队不需要有编程基础，只需要鼠标操作就可以完成点击流数据管道的创建和分析操作。客户的前端开发工程师则需要配合业务需要，将SDK集成到客户的App或网站中。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="成本因素"><a aria-hidden="true" tabindex="-1" href="#成本因素"><span class="icon icon-link"></span></a>成本因素</h3><div class="wrap-body">
+<p>该解决方案基于无服务器架构设计，使用成本同客户需要收集和分析的点击流数据量密切相关。在部署刚结束时，只会在客户的亚马逊云科技账户中创建一个Web控制台，该控制台采用无服务器架构，亚马逊云科技的免费套餐通常可以覆盖它的大部分成本。在后续实际使用中，主要成本是数据管道的费用，需要根据客户的配置 (包括摄入模块的服务器大小与数据宿类型、数据处理和建模模块的配置、仪表板和附加功能等) 和点击流数据量 (如每日10/100/1000个请求每秒 [RPS]) 进行评估。有关成本的详细介绍与示例，请参考<a href="https://awslabs.github.io/clickstream-analytics-on-aws/zh/1.1.x/plan-deployment/cost/" target="_blank">实施指南</a><!--rehype:target=_blank-->，或咨询客户经理。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="交付资源"><a aria-hidden="true" tabindex="-1" href="#交付资源"><span class="icon icon-link"></span></a>交付资源</h3><div class="wrap-body">
+<p>该解决方案提供源代码和Amazon CloudFormation模板。客户可以参考实施指南，运行Amazon CloudFormation模板一键部署。客户也可以自行修改源代码来满足特定的需求。如需要咨询技术问题，请在GitHub上提交issue，或通过客户经理联系该方案的项目负责人。</p>
+</div></div></div><div class="wrap h3body-not-exist col-span-3"><div class="wrap-header h3wrap"><h3 id="架构图"><a aria-hidden="true" tabindex="-1" href="#架构图"><span class="icon icon-link"></span></a>架构图</h3><div class="wrap-body">
+<!--rehype:wrap-class=col-span-3-->
+<p><img src="../architecture/SO0219_Clickstream_Analytics_end-to-end_China.png" alt="alt text" width="900" style="background-color: white;"><!--rehype:width=900&style=background-color: white;--></p>
+</div></div></div></div></div><div class="wrap h2body-exist"><div class="wrap-header h2wrap"><h2 id="更新说明"><a aria-hidden="true" tabindex="-1" href="#更新说明"><span class="icon icon-link"></span></a>更新说明</h2><div class="wrap-body">
+</div></div><div class="h2wrap-body"><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="v110"><a aria-hidden="true" tabindex="-1" href="#v110"><span class="icon icon-link"></span></a>v1.1.0</h3><div class="wrap-body">
+<p>此次更新最大的创新是增加了Analytics Studio (分析工作坊)。该功能为用户提供了统一的界面来查询和分析点击流数据，帮助用户更容易：</p>
+<ul>
+<li>访问预配置的用户生命周期仪表板，或创建自定义仪表板。</li>
+<li>通过易于配置的分析模型进行高级分析，包括事件分析、漏斗分析、路径分析和留存分析。</li>
+<li>查看和管理点击流数据的元数据。</li>
+</ul>
+<p>此外，新版本还增加了Flutter SDK，对基于Flutter开发的App，可简化收集数据的操作。</p>
+<p>更多更新记录，请参考<a href="https://github.com/awslabs/clickstream-analytics-on-aws/releases" target="_blank">Release Note</a><!--rehype:target=_blank-->。</p>
+</div></div></div></div></div><div class="wrap h2body-exist"><div class="wrap-header h2wrap"><h2 id="相关信息"><a aria-hidden="true" tabindex="-1" href="#相关信息"><span class="icon icon-link"></span></a>相关信息</h2><div class="wrap-body">
+</div></div><div class="h2wrap-body"><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="联系人"><a aria-hidden="true" tabindex="-1" href="#联系人"><span class="icon icon-link"></span></a>联系人</h3><div class="wrap-body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="left-align"><thead><tr><th align="left">:-</th><th align="left">:-</th></tr></thead><tbody><tr><td align="left">产品经理</td><td align="left"><a href="mailto:wenmg@amazon.com">Wenmeng Gao</a></td></tr><tr><td align="left">GTM经理</td><td align="left"><a href="mailto:puzhang@amazon.com">Pu Zhang</a></td></tr></tbody></table>
+<!--rehype:className=left-align-->
+</div></div></div><div class="wrap h3body-not-exist col-span-2"><div class="wrap-header h3wrap"><h3 id="资源"><a aria-hidden="true" tabindex="-1" href="#资源"><span class="icon icon-link"></span></a>资源</h3><div class="wrap-body">
+<!--rehype:wrap-class=col-span-2-->
+<ul>
+<li><a href="https://www.amazonaws.cn/solutions/technology/analytics/clickstream-analytics-on-aws/" target="_blank">官网 (中国)</a><!--rehype:target=_blank--></li>
+<li><a href="https://aws.amazon.com/solutions/implementations/clickstream-analytics-on-aws/" target="_blank">官网 (全球)</a><!--rehype:target=_blank--></li>
+<li><a href="https://docs.aws.amazon.com/solutions/latest/clickstream-analytics-on-aws/solution-overview.html" target="_blank">实施指南 (英文)</a><!--rehype:target=_blank--></li>
+<li><a href="https://awslabs.github.io/clickstream-analytics-on-aws/zh/1.1.x/solution-overview/" target="_blank">实施指南 (中/英文)</a><!--rehype:target=_blank--></li>
+<li><a href="https://catalog.workshops.aws/clickstream/" target="_blank">Workshop</a><!--rehype:target=_blank--></li>
+<li><a href="https://github.com/awslabs/clickstream-analytics-on-aws" target="_blank">GitHub</a><!--rehype:target=_blank--></li>
+<li><a href="https://media.amazonwebservices.com/aws-china-media/clickstream-new.mp4" target="_blank">短视频 (3分钟)</a><!--rehype:target=_blank--></li>
+<li>PartnerCast：<a href="https://explore.skillbuilder.aws/learn/course/18727/aws-partnercast-li-yong-fen-xi-gong-zuo-fang-xin-gong-neng-ta-zhan-dian-ji-liu-shu-ju-fen-xi-de-ye-wu-ji-hui-technical" target="_blank">利用分析工作坊新功能，拓展点击流数据分析的业务机会</a><!--rehype:target=_blank--></li>
+<li>案例：<a href="https://www.amazonaws.cn/customer-stories/software/cmcm/" target="_blank">亚马逊云科技助力猎豹移动构建实时数仓，构建近实时Serverless用户埋点数据分析体验</a><!--rehype:target=_blank--></li>
+<li><a href="https://mp.weixin.qq.com/s/JwmBd71CsNkFJ6r7Q4HeiQ" target="_blank">如何在亚马逊云点击流数据分析？</a><!--rehype:target=_blank--></li>
+<li>博客：<a href="https://aws.amazon.com/blogs/aws/new-solution-clickstream-analytics-on-aws-for-mobile-and-web-applications/" target="_blank">New Solution – Clickstream Analytics on AWS for Mobile and Web Applications</a><!--rehype:target=_blank--></li>
+</ul>
+
+</div></div></div></div></div></div></div><footer class="footer-wrap"><footer class="max-container">Copyright (c) <b>2024</b> 亚马逊云科技大中华区解决方案研发中心 (CSDC)<br><br>君子生非异也，善假于物也</footer></footer><script src="..\/data.js?v=1.5.3" defer></script><script src="..\/js/fuse.min.js?v=1.5.3" defer></script><script src="..\/js/main.js?v=1.5.3" defer></script><div id="mysearch"><div class="mysearch-box"><div class="mysearch-input"><div><svg xmlns="http://www.w3.org/2000/svg" height="1em" width="1em" viewBox="0 0 18 18">
+  <path fill="currentColor" d="M17.71,16.29 L14.31,12.9 C15.4069846,11.5024547 16.0022094,9.77665502 16,8 C16,3.581722 12.418278,0 8,0 C3.581722,0 0,3.581722 0,8 C0,12.418278 3.581722,16 8,16 C9.77665502,16.0022094 11.5024547,15.4069846 12.9,14.31 L16.29,17.71 C16.4777666,17.8993127 16.7333625,18.0057983 17,18.0057983 C17.2666375,18.0057983 17.5222334,17.8993127 17.71,17.71 C17.8993127,17.5222334 18.0057983,17.2666375 18.0057983,17 C18.0057983,16.7333625 17.8993127,16.4777666 17.71,16.29 Z M2,8 C2,4.6862915 4.6862915,2 8,2 C11.3137085,2 14,4.6862915 14,8 C14,11.3137085 11.3137085,14 8,14 C4.6862915,14 2,11.3137085 2,8 Z"></path>
+</svg><input id="mysearch-input" type="search" placeholder="搜索" autocomplete="off"><div class="mysearch-clear"></div></div><button id="mysearch-close" type="button">搜索</button></div><div class="mysearch-result"><div id="mysearch-menu"></div><div id="mysearch-content"></div></div></div></div></body>
+</html>
