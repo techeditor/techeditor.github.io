@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark">
+<head>
+<meta charset="utf-8">
+<title>Data Transfer Hub&#x3C;br>
+数据在线传输
+ &#x26;  dth cheatsheet &#x26;  CSDC Pi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta description="CSDC Power Interface">
+<meta keywords="dth,CSDC, Solution, Amazon Web Services">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%221em%22%20width%3D%221em%22%3E%20%3Cpath%20d%3D%22m21.66%2010.44-.98%204.18c-.84%203.61-2.5%205.07-5.62%204.77-.5-.04-1.04-.13-1.62-.27l-1.68-.4c-4.17-.99-5.46-3.05-4.48-7.23l.98-4.19c.2-.85.44-1.59.74-2.2%201.17-2.42%203.16-3.07%206.5-2.28l1.67.39c4.19.98%205.47%203.05%204.49%207.23Z%22%20fill%3D%22%23c9d1d9%22%2F%3E%20%3Cpath%20d%3D%22M15.06%2019.39c-.62.42-1.4.77-2.35%201.08l-1.58.52c-3.97%201.28-6.06.21-7.35-3.76L2.5%2013.28c-1.28-3.97-.22-6.07%203.75-7.35l1.58-.52c.41-.13.8-.24%201.17-.31-.3.61-.54%201.35-.74%202.2l-.98%204.19c-.98%204.18.31%206.24%204.48%207.23l1.68.4c.58.14%201.12.23%201.62.27Zm2.43-8.88c-.06%200-.12-.01-.19-.02l-4.85-1.23a.75.75%200%200%201%20.37-1.45l4.85%201.23a.748.748%200%200%201-.18%201.47Z%22%20fill%3D%22%23228e6c%22%20%2F%3E%20%3Cpath%20d%3D%22M14.56%2013.89c-.06%200-.12-.01-.19-.02l-2.91-.74a.75.75%200%200%201%20.37-1.45l2.91.74c.4.1.64.51.54.91-.08.34-.38.56-.72.56Z%22%20fill%3D%22%23228e6c%22%20%2F%3E%20%3C%2Fsvg%3E" type="image/svg+xml">
+<link rel="stylesheet" href="..\style\style.css">
+<link rel="stylesheet" href="..\style\katex.css">
+</head>
+<body><nav class="header-nav"><div class="max-container"><a href="..\index.html" class="logo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" height="1em" width="1em">
+  <path d="m21.66 10.44-.98 4.18c-.84 3.61-2.5 5.07-5.62 4.77-.5-.04-1.04-.13-1.62-.27l-1.68-.4c-4.17-.99-5.46-3.05-4.48-7.23l.98-4.19c.2-.85.44-1.59.74-2.2 1.17-2.42 3.16-3.07 6.5-2.28l1.67.39c4.19.98 5.47 3.05 4.49 7.23Z" fill="#c9d1d9"></path>
+  <path d="M15.06 19.39c-.62.42-1.4.77-2.35 1.08l-1.58.52c-3.97 1.28-6.06.21-7.35-3.76L2.5 13.28c-1.28-3.97-.22-6.07 3.75-7.35l1.58-.52c.41-.13.8-.24 1.17-.31-.3.61-.54 1.35-.74 2.2l-.98 4.19c-.98 4.18.31 6.24 4.48 7.23l1.68.4c.58.14 1.12.23 1.62.27Zm2.43-8.88c-.06 0-.12-.01-.19-.02l-4.85-1.23a.75.75 0 0 1 .37-1.45l4.85 1.23a.748.748 0 0 1-.18 1.47Z" fill="#228e6c"></path>
+  <path d="M14.56 13.89c-.06 0-.12-.01-.19-.02l-2.91-.74a.75.75 0 0 1 .37-1.45l2.91.74c.4.1.64.51.54.91-.08.34-.38.56-.72.56Z" fill="#228e6c"></path>
+</svg>
+<span class="title">CSDC Pi</span></a><div class="menu"><a href="javascript:void(0);" class="searchbtn" id="searchbtn"><svg xmlns="http://www.w3.org/2000/svg" height="1em" width="1em" viewBox="0 0 18 18">
+  <path fill="currentColor" d="M17.71,16.29 L14.31,12.9 C15.4069846,11.5024547 16.0022094,9.77665502 16,8 C16,3.581722 12.418278,0 8,0 C3.581722,0 0,3.581722 0,8 C0,12.418278 3.581722,16 8,16 C9.77665502,16.0022094 11.5024547,15.4069846 12.9,14.31 L16.29,17.71 C16.4777666,17.8993127 16.7333625,18.0057983 17,18.0057983 C17.2666375,18.0057983 17.5222334,17.8993127 17.71,17.71 C17.8993127,17.5222334 18.0057983,17.2666375 18.0057983,17 C18.0057983,16.7333625 17.8993127,16.4777666 17.71,16.29 Z M2,8 C2,4.6862915 4.6862915,2 8,2 C11.3137085,2 14,4.6862915 14,8 C14,11.3137085 11.3137085,14 8,14 C4.6862915,14 2,11.3137085 2,8 Z"></path>
+</svg><span>搜索</span><span>⌘K</span></a><button id="darkMode" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="light" height="1em" width="1em">
+  <path d="M6.995 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007-2.246-5.007-5.007-5.007S6.995 9.239 6.995 12zM11 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2H2zm17 0h3v2h-3zM5.637 19.778l-1.414-1.414 2.121-2.121 1.414 1.414zM16.242 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.344 7.759 4.223 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z"></path>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="dark" height="1em" width="1em">
+  <path d="M12 11.807A9.002 9.002 0 0 1 10.049 2a9.942 9.942 0 0 0-5.12 2.735c-3.905 3.905-3.905 10.237 0 14.142 3.906 3.906 10.237 3.905 14.143 0a9.946 9.946 0 0 0 2.735-5.119A9.003 9.003 0 0 1 12 11.807z"></path>
+</svg>
+</button><script src="../js/dark.js?v=1.5.3"></script></div></div></nav><div class="wrap h1body-exist max-container"><header class="wrap-header h1wrap"><h1 id="data-transfer-hub数据在线传输"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor">
+<path d="M512 64C265.6 64 64 265.6 64 512s201.6 448 448 448 448-201.6 448-448-201.6-448-448-448zM300.8 425.6l128-96c12.8-9.6 35.2-6.4 44.8 6.4 9.6 12.8 6.4 35.2-6.4 44.8l-51.2 38.4H704c19.2 0 32 12.8 32 32s-12.8 32-32 32H320c-12.8 0-25.6-9.6-28.8-22.4-3.2-12.8 0-25.6 9.6-35.2z m422.4 179.2l-128 96c-6.4 3.2-12.8 6.4-19.2 6.4-9.6 0-19.2-3.2-25.6-12.8-9.6-12.8-6.4-35.2 6.4-44.8l51.2-38.4H320c-19.2 0-32-12.8-32-32s12.8-32 32-32h384c12.8 0 25.6 9.6 32 22.4 3.2 12.8-3.2 28.8-12.8 35.2z"></path>
+</svg><a aria-hidden="true" tabindex="-1" href="#data-transfer-hub数据在线传输"><span class="icon icon-link"></span></a>Data Transfer Hub<br>
+数据在线传输</h1><div class="wrap-body">
+</div></header><div class="menu-tocs"><div class="menu-btn"><svg aria-hidden="true" fill="currentColor" height="1em" width="1em" viewBox="0 0 16 16" version="1.1" data-view-component="true">
+  <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+</svg></div><div class="menu-modal"><a aria-hidden="true" class="leve2 tocs-link" data-num="2" href="#基本信息">基本信息</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#属性">属性</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#主要行业">主要行业</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#主要业务场景">主要业务场景</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#技术领域">技术领域</a><a aria-hidden="true" class="leve2 tocs-link" data-num="2" href="#业务介绍">业务介绍</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#背景">背景</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#适用客户">适用客户</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#适用场景">适用场景</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#客户痛点">客户痛点</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#客户价值">客户价值</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#简单易用">简单易用</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#安全可靠功能丰富">安全可靠、功能丰富</a><a aria-hidden="true" class="leve2 tocs-link" data-num="2" href="#技术介绍">技术介绍</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#概要">概要</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#amazon-s3">Amazon S3</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#amazon-ecr">Amazon ECR</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#特点">特点</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#易使用">易使用</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#低成本">低成本</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#高性能">高性能</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#主要服务">主要服务</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#部署前提条件">部署前提条件</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#客户资源能力评估">客户资源/能力评估</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#成本因素">成本因素</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#交付资源">交付资源</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#架构图">架构图</a><a aria-hidden="true" class="leve2 tocs-link" data-num="2" href="#合作伙伴">合作伙伴</a><a aria-hidden="true" class="leve2 tocs-link" data-num="2" href="#更新说明">更新说明</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#v260">v2.6.0</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#v250">v2.5.0</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#v230-提升可观测性">v2.3.0 提升可观测性</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#v220-支持direct-connect服务">v2.2.0 支持Direct Connect服务</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#v210">v2.1.0</a><a aria-hidden="true" class="leve2 tocs-link" data-num="2" href="#相关信息">相关信息</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#联系人">联系人</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#资源">资源</a></div></div><div class="h1wrap-body"><div class="wrap h2body-exist"><div class="wrap-header h2wrap"><h2 id="基本信息"><a aria-hidden="true" tabindex="-1" href="#基本信息"><span class="icon icon-link"></span></a>基本信息</h2><div class="wrap-body">
+</div></div><div class="h2wrap-body"><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="属性"><a aria-hidden="true" tabindex="-1" href="#属性"><span class="icon icon-link"></span></a>属性</h3><div class="wrap-body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="left-align"><thead><tr><th align="left">:-</th><th align="left">:-</th></tr></thead><tbody><tr><td align="left">类型</td><td align="left">Solution</td></tr><tr><td align="left">状态</td><td align="left">正式发布</td></tr><tr><td align="left">一键部署</td><td align="left"><a href="https://www.amazonaws.cn/solutions/data-transfer-hub/" target="_blank">官网 (中国)</a><!--rehype:target=_blank--></td></tr><tr><td align="left">代码开源</td><td align="left"><a href="https://github.com/awslabs/data-transfer-hub" target="_blank">GitHub Repo</a><!--rehype:target=_blank--></td></tr></tbody></table>
+<!--rehype:className=left-align-->
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="主要行业"><a aria-hidden="true" tabindex="-1" href="#主要行业"><span class="icon icon-link"></span></a>主要行业</h3><div class="wrap-body">
+<p>行业通用，典型行业包括：</p>
+<ul>
+<li>游戏</li>
+<li>电商</li>
+<li>零售</li>
+<li>制造</li>
+<li>金融</li>
+<li>汽车</li>
+</ul>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="主要业务场景"><a aria-hidden="true" tabindex="-1" href="#主要业务场景"><span class="icon icon-link"></span></a>主要业务场景</h3><div class="wrap-body">
+<ul>
+<li>对象数据或容器镜像的复制</li>
+<li>对象数据或容器镜像的迁移</li>
+</ul>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="技术领域"><a aria-hidden="true" tabindex="-1" href="#技术领域"><span class="icon icon-link"></span></a>技术领域</h3><div class="wrap-body">
+<ul>
+<li>迁移</li>
+<li>容器</li>
+</ul>
+</div></div></div></div></div><div class="wrap h2body-exist"><div class="wrap-header h2wrap"><h2 id="业务介绍"><a aria-hidden="true" tabindex="-1" href="#业务介绍"><span class="icon icon-link"></span></a>业务介绍</h2><div class="wrap-body">
+</div></div><div class="h2wrap-body"><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="背景"><a aria-hidden="true" tabindex="-1" href="#背景"><span class="icon icon-link"></span></a>背景</h3><div class="wrap-body">
+<p>客户在使用对象存储服务或者容器镜像服务时，需要复制、迁移对象或容器镜像，通常有两大类需求：</p>
+<ul>
+<li>把数据从友商 (如阿里云OSS、腾讯云、七牛云、华为云等) 的对象存储服务中迁移到 Amazon S3；</li>
+<li>使数据在亚马逊云科技全球区域和中国区域的 Amazon S3 之间同步。</li>
+</ul>
+<p>对于后者，面临的主要问题是中国区域和全球区域的网络隔离，导致 Amazon S3 和 Amazon ECR 在两个区域之间的数据传输受阻。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="适用客户"><a aria-hidden="true" tabindex="-1" href="#适用客户"><span class="icon icon-link"></span></a>适用客户</h3><div class="wrap-body">
+<p>该方案适用于各行业的客户，特别是有大量数据复制、迁移需求的客户。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="适用场景"><a aria-hidden="true" tabindex="-1" href="#适用场景"><span class="icon icon-link"></span></a>适用场景</h3><div class="wrap-body">
+<p>客户期望能有开箱即用的工具，直接完成对象或容器镜像的复制、迁移，并且保证性能、数据的安全与完整性。典型的场景是数据迁移、友商数据迁移、业务出海、数据合规、数据灾备等。</p>
+<p>具体需求包括：</p>
+<ul>
+<li>Amazon S3 数据在中国区域和全球区域之间传输；</li>
+<li>从友商的对象存储迁移到 Amazon S3；</li>
+<li>Amazon ECR 镜像数据在中国区域和全球区域之间传输；</li>
+<li>从公共镜像仓库拉取镜像到 Amazon ECR 需求的客户。</li>
+</ul>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="客户痛点"><a aria-hidden="true" tabindex="-1" href="#客户痛点"><span class="icon icon-link"></span></a>客户痛点</h3><div class="wrap-body">
+<ul>
+<li>功能缺失顾虑多。亚马逊云科技没有针对相应客户场景的服务可以直接使用，因此客户需要使用开源工具或自行开发。无论采用哪种方式，都需要考虑性能、安全、错误处理等方面的问题。</li>
+<li>自行研发投入大。大部分客户只需要进行一次性的复制或迁移，因此客户并不希望过多的投入资源和关注其中的技术复杂性。</li>
+<li>期望有丰富友好的应用体验，包括监督传输状态与进度、大文件断点续传、失败重传、并行化高速传输，以及近实时的实时数据同步。</li>
+</ul>
+</div></div></div><div class="wrap h3body-exist"><div class="wrap-header h3wrap"><h3 id="客户价值"><a aria-hidden="true" tabindex="-1" href="#客户价值"><span class="icon icon-link"></span></a>客户价值</h3><div class="wrap-body">
+<p>该方案可以快速、全面地满足客户复制、迁移大量对象或容器镜像的需求。</p>
+<h4 id="简单易用"><a aria-hidden="true" tabindex="-1" href="#简单易用"><span class="icon icon-link"></span></a>简单易用</h4>
+<p>客户只需要在部署时指定需要复制或迁移的源、目标等信息，就可以在几分钟内开始数据的复制或迁移。</p>
+<h4 id="安全可靠功能丰富"><a aria-hidden="true" tabindex="-1" href="#安全可靠功能丰富"><span class="icon icon-link"></span></a>安全可靠、功能丰富</h4>
+<p>基于亚马逊云科技的安全最佳实践，支持并发和多节点同时传输，自动开启网络加速，有完整的错误处理与验证机制，支持断点续传，同时提供仪表板，客户可以随时监控任务的进展。</p>
+</div></div></div></div></div><div class="wrap h2body-exist"><div class="wrap-header h2wrap"><h2 id="技术介绍"><a aria-hidden="true" tabindex="-1" href="#技术介绍"><span class="icon icon-link"></span></a>技术介绍</h2><div class="wrap-body">
+</div></div><div class="h2wrap-body"><div class="wrap h3body-exist"><div class="wrap-header h3wrap"><h3 id="概要"><a aria-hidden="true" tabindex="-1" href="#概要"><span class="icon icon-link"></span></a>概要</h3><div class="wrap-body">
+<p>该方案实现安全、可靠、可扩展和可追踪的对象数据传输功能，为客户提供一致的用户体验，使其可以轻松地创建和管理传输任务，将不同类型的数据从不同来源复制、迁移到亚马逊云科技的云原生服务。</p>
+<p>主要功能包括：</p>
+<h4 id="amazon-s3"><a aria-hidden="true" tabindex="-1" href="#amazon-s3"><span class="icon icon-link"></span></a>Amazon S3</h4>
+<p>支持将数据从其他云服务商的对象存储服务 (包括阿里云 OSS、腾讯 COS、七牛 Kodo 和其他兼容 Amazon S3 的云存储服务) 复制到 Amazon S3；支持在亚马逊云科技全球区域和中国区域之间复制 Amazon S3 对象。</p>
+<h4 id="amazon-ecr"><a aria-hidden="true" tabindex="-1" href="#amazon-ecr"><span class="icon icon-link"></span></a>Amazon ECR</h4>
+<p>支持在亚马逊云科技全球区域和中国区域之间复制 Amazon ECR 容器镜像，支持将容器镜像从公共容器镜像仓库 (如Docker Hub、Google gcr.io、Red Hat Quay.io等) 复制到 Amazon ECR。</p>
+</div></div></div><div class="wrap h3body-exist"><div class="wrap-header h3wrap"><h3 id="特点"><a aria-hidden="true" tabindex="-1" href="#特点"><span class="icon icon-link"></span></a>特点</h3><div class="wrap-body">
+<p>该方案支持一键部署，采用无服务器架构，提供友好的用户界面，支持多种来源的数据复制或迁移任务。</p>
+<h4 id="易使用"><a aria-hidden="true" tabindex="-1" href="#易使用"><span class="icon icon-link"></span></a>易使用</h4>
+<p>拥有前端界面，便于客户上手操作。</p>
+<h4 id="低成本"><a aria-hidden="true" tabindex="-1" href="#低成本"><span class="icon icon-link"></span></a>低成本</h4>
+<p>采用 Amazon Graviton2 作为工作集群，大大降低云上费用。</p>
+<h4 id="高性能"><a aria-hidden="true" tabindex="-1" href="#高性能"><span class="icon icon-link"></span></a>高性能</h4>
+<p>运用 BBR 加速，提升10倍传输性能；采用集群架构，实现海量数据极速传输。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="主要服务"><a aria-hidden="true" tabindex="-1" href="#主要服务"><span class="icon icon-link"></span></a>主要服务</h3><div class="wrap-body">
+<ul>
+<li>Amazon AppSync</li>
+<li>Amazon CloudFormation</li>
+<li>Amazon CloudFront</li>
+<li>Amazon Cognito</li>
+<li>Amazon DynamoDB</li>
+<li>Amazon Elastic Container Registry (ECR)</li>
+<li>Amazon Fargate for ECS</li>
+<li>Amazon Lambda</li>
+<li>Amazon S3</li>
+</ul>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="部署前提条件"><a aria-hidden="true" tabindex="-1" href="#部署前提条件"><span class="icon icon-link"></span></a>部署前提条件</h3><div class="wrap-body">
+<p>客户需要拥有亚马逊云科技的中国区域账号或者全球区域账号，无其他部署前提条件。客户即使没有任何基础，也能快速搭建出演示或 POC 系统进行展示和验证。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="客户资源能力评估"><a aria-hidden="true" tabindex="-1" href="#客户资源能力评估"><span class="icon icon-link"></span></a>客户资源/能力评估</h3><div class="wrap-body">
+<p>对客户没有资源或能力方面的要求。该方案提供前端界面，所以客户不需要有任何编程基础，只需要点击鼠标操作即可。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="成本因素"><a aria-hidden="true" tabindex="-1" href="#成本因素"><span class="icon icon-link"></span></a>成本因素</h3><div class="wrap-body">
+<p>应用成本主要与传输的数据总量，以及对象 (文件) 的平均大小有关。例如，从 us-west-2 区 S3 传输 100TB 的对象到宁夏区 S3，平均文件大小是 50MB，那么排除流量和 S3 存储费用外，成本大概为 29 美元。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="交付资源"><a aria-hidden="true" tabindex="-1" href="#交付资源"><span class="icon icon-link"></span></a>交付资源</h3><div class="wrap-body">
+<p>该方案提供源代码和Amazon CloudFormation模板。客户可以参考部署手册，运行Amazon CloudFormation模板一键部署。客户可以自行修改源代码来满足特定的需求。如需要咨询技术问题，请在GitHub上提交issue，或通过内部系统联系该方案的项目负责人。</p>
+</div></div></div><div class="wrap h3body-not-exist col-span-3"><div class="wrap-header h3wrap"><h3 id="架构图"><a aria-hidden="true" tabindex="-1" href="#架构图"><span class="icon icon-link"></span></a>架构图</h3><div class="wrap-body">
+<!--rehype:wrap-class=col-span-3-->
+<p><img src="../architecture/SO8001_DTH.png" alt="alt text" width="900"><!--rehype:width=900--></p>
+</div></div></div></div></div><div class="wrap h2body-not-exist"><div class="wrap-header h2wrap"><h2 id="合作伙伴"><a aria-hidden="true" tabindex="-1" href="#合作伙伴"><span class="icon icon-link"></span></a>合作伙伴</h2><div class="wrap-body">
+<p>可提供支持的合作伙伴：</p>
+<ul>
+<li>华讯网络 (ECCOM)</li>
+</ul>
+</div></div><div class="h2wrap-body"></div></div><div class="wrap h2body-exist"><div class="wrap-header h2wrap"><h2 id="更新说明"><a aria-hidden="true" tabindex="-1" href="#更新说明"><span class="icon icon-link"></span></a>更新说明</h2><div class="wrap-body">
+</div></div><div class="h2wrap-body"><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="v260"><a aria-hidden="true" tabindex="-1" href="#v260"><span class="icon icon-link"></span></a>v2.6.0</h3><div class="wrap-body">
+<p>新版本主要包括以下功能改进与优化。有关更多内容，请参考<a href="https://github.com/awslabs/data-transfer-hub/releases/tag/v2.6.0" target="_blank">更新说明</a><!--rehype:target=_blank-->。</p>
+<ul>
+<li>支持使用Amazon S3托管密钥加密的Amazon S3目标存储桶。</li>
+<li>提供可选的Amazon S3存储桶来保存前缀列表文件。对于以OpenSource为源桶的情况，前缀列表文件可选择存放在自定义的桶内。</li>
+<li>Finder的内存容量可增加到385GB和512GB，最大单线程扫描文件数提升100%，从而可支持高达1.28 billion个文件的比较。</li>
+<li>新增3个支持区域：亚太地区 (墨尔本)、加拿大 (卡尔加里)、以色列 (特拉维夫)</li>
+</ul>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="v250"><a aria-hidden="true" tabindex="-1" href="#v250"><span class="icon icon-link"></span></a>v2.5.0</h3><div class="wrap-body">
+<p>新版本主要包括以下功能改进与优化：</p>
+<ul>
+<li>增强S3大文件传输性能，基于集群的并行能力来改善S3大文件传输的用户体验。</li>
+<li>支持未标记的ECR内容 (镜像文件签名、SBOM和其他工件) 传输。</li>
+<li>优化任务视图，新增过滤条件以便查看所有历史任务。</li>
+</ul>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="v230-提升可观测性"><a aria-hidden="true" tabindex="-1" href="#v230-提升可观测性"><span class="icon icon-link"></span></a>v2.3.0 提升可观测性</h3><div class="wrap-body">
+<p>新版本主要包括以下功能改进与优化：</p>
+<ul>
+<li>支持嵌入式仪表板和监控日志，用户在DTH的控制台中就可看到任务的传输监控仪表盘和监控日志，不需要跳转到Amazon Web Services的控制台。同时改进了任务失败时的错误自检，帮助用户提升定位问题的效率。</li>
+<li>支持Access Key ID &#x26; Secret Access Key自动轮换，S3传输任务能够自动感知AK-SK轮换并定时轮换，不需要手动重启ASG集群。</li>
+<li>增强一次性传输任务 (One-Time Task) 的监控功能，通过邮件告知用户本次传输任务是否成功。</li>
+<li>新增根据指定的AWS ECR Repo名称自动检索所有Tag，不需要手动罗列所有Tag。</li>
+</ul>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="v220-支持direct-connect服务"><a aria-hidden="true" tabindex="-1" href="#v220-支持direct-connect服务"><span class="icon icon-link"></span></a>v2.2.0 支持Direct Connect服务</h3><div class="wrap-body">
+<p>新版本支持通过专线进行数据传输。对于已经在特定海外区域和特定中国区域均开启了Direct Connect服务，并已经采购了有资质的运营商提供的合规跨境专线连接该海外区域和该中国区域自用VPC的客户，现在可以自主通过本方案的控制台创建S3数据传输任务，并自主选择使用专线进行传输。该新功能适用于对于安全性等事项有更高要求的客户。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="v210"><a aria-hidden="true" tabindex="-1" href="#v210"><span class="icon icon-link"></span></a>v2.1.0</h3><div class="wrap-body">
+<p>新版本主要包括以下功能改进与优化：</p>
+<ul>
+<li>支持自定义前缀列表来筛选传输任务；</li>
+<li>支持灵活配置单次或定期的传输任务；</li>
+<li>支持通过自定义CRON表达式配置任务时间表；</li>
+<li>支持自定义开启或关闭数据比对功能。</li>
+</ul>
+</div></div></div></div></div><div class="wrap h2body-exist"><div class="wrap-header h2wrap"><h2 id="相关信息"><a aria-hidden="true" tabindex="-1" href="#相关信息"><span class="icon icon-link"></span></a>相关信息</h2><div class="wrap-body">
+</div></div><div class="h2wrap-body"><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="联系人"><a aria-hidden="true" tabindex="-1" href="#联系人"><span class="icon icon-link"></span></a>联系人</h3><div class="wrap-body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="left-align"><thead><tr><th align="left">:-</th><th align="left">:-</th></tr></thead><tbody><tr><td align="left">产品经理</td><td align="left"><a href="mailto:luorobin@amazon.com">Robin Luo</a></td></tr><tr><td align="left">GTM经理</td><td align="left"><a href="mailto:puzhang@amazon.com">Pu Zhang</a></td></tr></tbody></table>
+<!--rehype:className=left-align-->
+</div></div></div><div class="wrap h3body-not-exist col-span-2"><div class="wrap-header h3wrap"><h3 id="资源"><a aria-hidden="true" tabindex="-1" href="#资源"><span class="icon icon-link"></span></a>资源</h3><div class="wrap-body">
+<!--rehype:wrap-class=col-span-2-->
+<ul>
+<li><a href="https://www.amazonaws.cn/solutions/data-transfer-hub/" target="_blank">官网 (中国)</a><!--rehype:target=_blank--></li>
+<li><a href="https://awslabs.github.io/data-transfer-hub/zh/" target="_blank">实施指南 (中文)</a><!--rehype:target=_blank--></li>
+<li><a href="https://docs.aws.amazon.com/solutions/latest/data-transfer-hub/welcome.html" target="_blank">实施指南 (英文)</a><!--rehype:target=_blank--></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/workshops/cea143f2-a144-4ce1-90b7-814824b5d193/en-US" target="_blank">Workshop</a><!--rehype:target=_blank--></li>
+<li><a href="https://github.com/awslabs/data-transfer-hub" target="_blank">GitHub</a><!--rehype:target=_blank--></li>
+<li>PartnerCast：<a href="https://explore.skillbuilder.aws/learn/course/internal/view/elearning/11298/aws-partnercast-li-yong-shu-ju-zai-xian-chuan-shu-jie-jue-fang-an-shi-xian-dui-xiang-cun-chu-shu-ju-yu-rong-qi-jing-xiang-de-gao-xiao-chuan-shu-technical" target="_blank">利用数据在线传输解决方案实现对象存储数据与容器镜像的高效传输</a><!--rehype:target=_blank--></li>
+</ul>
+
+</div></div></div></div></div></div></div><footer class="footer-wrap"><footer class="max-container">Copyright (c) <b>2024</b> 亚马逊云科技大中华区解决方案研发中心 (CSDC)<br><br>君子生非异也，善假于物也</footer></footer><script src="..\/data.js?v=1.5.3" defer></script><script src="..\/js/fuse.min.js?v=1.5.3" defer></script><script src="..\/js/main.js?v=1.5.3" defer></script><div id="mysearch"><div class="mysearch-box"><div class="mysearch-input"><div><svg xmlns="http://www.w3.org/2000/svg" height="1em" width="1em" viewBox="0 0 18 18">
+  <path fill="currentColor" d="M17.71,16.29 L14.31,12.9 C15.4069846,11.5024547 16.0022094,9.77665502 16,8 C16,3.581722 12.418278,0 8,0 C3.581722,0 0,3.581722 0,8 C0,12.418278 3.581722,16 8,16 C9.77665502,16.0022094 11.5024547,15.4069846 12.9,14.31 L16.29,17.71 C16.4777666,17.8993127 16.7333625,18.0057983 17,18.0057983 C17.2666375,18.0057983 17.5222334,17.8993127 17.71,17.71 C17.8993127,17.5222334 18.0057983,17.2666375 18.0057983,17 C18.0057983,16.7333625 17.8993127,16.4777666 17.71,16.29 Z M2,8 C2,4.6862915 4.6862915,2 8,2 C11.3137085,2 14,4.6862915 14,8 C14,11.3137085 11.3137085,14 8,14 C4.6862915,14 2,11.3137085 2,8 Z"></path>
+</svg><input id="mysearch-input" type="search" placeholder="搜索" autocomplete="off"><div class="mysearch-clear"></div></div><button id="mysearch-close" type="button">搜索</button></div><div class="mysearch-result"><div id="mysearch-menu"></div><div id="mysearch-content"></div></div></div></div></body>
+</html>
