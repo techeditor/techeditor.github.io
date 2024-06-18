@@ -1,0 +1,115 @@
+﻿<!doctype html>
+<html lang="en" data-color-mode="dark">
+<head>
+<meta charset="utf-8">
+<title>2024 GenAI Day&#x3C;br>CSDC专题
+ &#x26;  2024-GenAI-Day cheatsheet &#x26;  CSDC Pi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta description="CSDC Power Interface">
+<meta keywords="2024-GenAI-Day,CSDC, Solution, Amazon Web Services">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%221em%22%20width%3D%221em%22%3E%20%3Cpath%20d%3D%22m21.66%2010.44-.98%204.18c-.84%203.61-2.5%205.07-5.62%204.77-.5-.04-1.04-.13-1.62-.27l-1.68-.4c-4.17-.99-5.46-3.05-4.48-7.23l.98-4.19c.2-.85.44-1.59.74-2.2%201.17-2.42%203.16-3.07%206.5-2.28l1.67.39c4.19.98%205.47%203.05%204.49%207.23Z%22%20fill%3D%22%23c9d1d9%22%2F%3E%20%3Cpath%20d%3D%22M15.06%2019.39c-.62.42-1.4.77-2.35%201.08l-1.58.52c-3.97%201.28-6.06.21-7.35-3.76L2.5%2013.28c-1.28-3.97-.22-6.07%203.75-7.35l1.58-.52c.41-.13.8-.24%201.17-.31-.3.61-.54%201.35-.74%202.2l-.98%204.19c-.98%204.18.31%206.24%204.48%207.23l1.68.4c.58.14%201.12.23%201.62.27Zm2.43-8.88c-.06%200-.12-.01-.19-.02l-4.85-1.23a.75.75%200%200%201%20.37-1.45l4.85%201.23a.748.748%200%200%201-.18%201.47Z%22%20fill%3D%22%23228e6c%22%20%2F%3E%20%3Cpath%20d%3D%22M14.56%2013.89c-.06%200-.12-.01-.19-.02l-2.91-.74a.75.75%200%200%201%20.37-1.45l2.91.74c.4.1.64.51.54.91-.08.34-.38.56-.72.56Z%22%20fill%3D%22%23228e6c%22%20%2F%3E%20%3C%2Fsvg%3E" type="image/svg+xml">
+<link rel="stylesheet" href="..\style\style.css">
+<link rel="stylesheet" href="..\style\katex.css">
+<script src="https://techeditor.github.io/csdc-power-interface/js/clickstream-web.min.js"></script>
+<script>
+  window.ClickstreamAnalytics.init({
+    appId: 'csdc_pi',
+    endpoint: 'https://summit.xiaoweii.demo.solutions.aws.a2z.org.cn/collect',
+    isLogEvents: true,
+    pageType: 'multiPageApp'
+  })
+</script>
+</head>
+<body><nav class="header-nav"><div class="max-container"><a href="..\index.html" class="logo"><svg viewBox="0 0 355 410" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor">
+	<path d="M354.5 184.5L354.5 307L177.5 409.5L0 307L0 265.5L35.5 245.5L0 224.5L0.5 102L178.5 -0.5L354.5 102.5L354.5 143L319.5 163.5L354.5 184.5ZM178 10L17.5 102.5L186 198.5L345 106.5L178 10ZM177.5 236L177.5 203.5L9 107.5L9 220.5L150 302.5L150 362.5L9 281L9 302.5L177.5 400L177.5 296.5L27.5 209.5L27.5 148.5L177.5 236ZM178 245.5L35.5 164L35.5 204.5L178 286.5L346.5 189L311 169L178 245.5ZM9 270.5L44 250.5L142 307L142 347L9 270.5Z" fill="#FF9A02" fill-rule="evenodd"></path>
+</svg>
+<span class="title">CSDC Pi</span></a><div class="menu"><a href="javascript:void(0);" class="searchbtn" id="searchbtn"><svg xmlns="http://www.w3.org/2000/svg" height="1em" width="1em" viewBox="0 0 18 18">
+  <path fill="currentColor" d="M17.71,16.29 L14.31,12.9 C15.4069846,11.5024547 16.0022094,9.77665502 16,8 C16,3.581722 12.418278,0 8,0 C3.581722,0 0,3.581722 0,8 C0,12.418278 3.581722,16 8,16 C9.77665502,16.0022094 11.5024547,15.4069846 12.9,14.31 L16.29,17.71 C16.4777666,17.8993127 16.7333625,18.0057983 17,18.0057983 C17.2666375,18.0057983 17.5222334,17.8993127 17.71,17.71 C17.8993127,17.5222334 18.0057983,17.2666375 18.0057983,17 C18.0057983,16.7333625 17.8993127,16.4777666 17.71,16.29 Z M2,8 C2,4.6862915 4.6862915,2 8,2 C11.3137085,2 14,4.6862915 14,8 C14,11.3137085 11.3137085,14 8,14 C4.6862915,14 2,11.3137085 2,8 Z"></path>
+</svg><span>搜索</span><span>⌘K</span></a><button id="darkMode" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="light" height="1em" width="1em">
+  <path d="M6.995 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007-2.246-5.007-5.007-5.007S6.995 9.239 6.995 12zM11 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2H2zm17 0h3v2h-3zM5.637 19.778l-1.414-1.414 2.121-2.121 1.414 1.414zM16.242 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.344 7.759 4.223 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z"></path>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="dark" height="1em" width="1em">
+  <path d="M12 11.807A9.002 9.002 0 0 1 10.049 2a9.942 9.942 0 0 0-5.12 2.735c-3.905 3.905-3.905 10.237 0 14.142 3.906 3.906 10.237 3.905 14.143 0a9.946 9.946 0 0 0 2.735-5.119A9.003 9.003 0 0 1 12 11.807z"></path>
+</svg>
+</button><script src="../js/dark.js?v=1.5.3"></script></div></div></nav><div class="wrap h1body-exist max-container"><header class="wrap-header h1wrap"><h1 id="2024-genai-daycsdc专题"><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1em" width="1em">
+  <path d="M107.946667 838.4l57.173333 23.893333v-385.28l-103.68 250.026667c-17.493333 43.52 3.413333 93.44 46.506667 111.36z m832-157.866667L728.32 169.813333a85.888 85.888 0 0 0-77.226667-52.48c-11.093333 0-22.613333 1.706667-33.706666 6.4L302.933333 253.866667a85.290667 85.290667 0 0 0-46.08 110.933333l211.626667 510.72a85.248 85.248 0 0 0 110.933333 46.08l314.026667-130.133333a85.077333 85.077333 0 0 0 46.506667-110.933334zM336.213333 373.333333c-23.466667 0-42.666667-19.2-42.666666-42.666666s19.2-42.666667 42.666666-42.666667 42.666667 19.2 42.666667 42.666667-19.2 42.666667-42.666667 42.666666z m-85.333333 469.333334c0 46.933333 38.4 85.333333 85.333333 85.333333h61.866667l-147.2-355.84v270.506667z"></path>
+</svg><a aria-hidden="true" tabindex="-1" href="#2024-genai-daycsdc专题"><span class="icon icon-link"></span></a>2024 GenAI Day<br>CSDC专题</h1><div class="wrap-body">
+<p>在2024亚马逊云科技中国峰会中，以下是CSDC负责或参与的展位和演讲，欢迎您携客户莅临指导！</p>
+</div></header><div class="menu-tocs"><div class="menu-btn"><svg aria-hidden="true" fill="currentColor" height="1em" width="1em" viewBox="0 0 16 16" version="1.1" data-view-component="true">
+  <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+</svg></div><div class="menu-modal"><a aria-hidden="true" class="leve2 tocs-link" data-num="2" href="#技术展区">技术展区</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#中国白云体验-多智能体德化白瓷科普white-from-china-experience-on-cloud">中国白，云体验—— 多智能体德化白瓷科普White from China, Experience on Cloud</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#走向世界的中国白blanc-de-chine-going-global">走向世界的中国白Blanc de Chine Going Global</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#采用多智能体的科普体验exploration-experience-featuring-multi-agent">采用多智能体的科普体验Exploration Experience Featuring Multi-Agent</a><a aria-hidden="true" class="leve4 tocs-link" data-num="4" href="#游戏规则game-rules">游戏规则Game Rules</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#释放云端生图能力image-generation-on-the-cloud-with-extension-for-stable-diffusion">释放云端生图能力Image Generation on the Cloud with Extension for Stable Diffusion</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#轻松切换到amazon-bedrock上的模型easy-llms-migration-with-bedrock-access-gateway">轻松切换到Amazon Bedrock上的模型Easy LLMs Migration with Bedrock Access Gateway</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#提示词自动转化与优化automatic-prompt-transformation-and-optimization">提示词自动转化与优化Automatic Prompt Transformation and Optimization</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#高效采集处理与分析业务数据efficient-collection-processing-and-analysis-of-business-data">高效采集、处理与分析业务数据Efficient Collection, Processing, and Analysis of Business Data</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#敏感数据保护解决方案">敏感数据保护解决方案</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#cloudfront预热工具">Cloudfront预热工具</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#端到端点击流分析">端到端点击流分析</a><a aria-hidden="true" class="leve2 tocs-link" data-num="2" href="#行业展区">行业展区</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#旅游行业智能数据分析助手guidance-for-hospitality-generative-bi-assistant">旅游行业智能数据分析助手Guidance for Hospitality Generative BI Assistant</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#基于生成式ai的游戏运营分析解决方案指南guidance-for-game-operation-analysis-with-generative-ai">基于生成式AI的游戏运营分析解决方案指南Guidance for Game Operation Analysis with Generative AI</a><a aria-hidden="true" class="leve3 tocs-link" data-num="3" href="#生成式ai助力工业设计解决方案指南guidance-for-generative-ai-powered-industrial-digital-design">生成式AI助力工业设计解决方案指南Guidance for Generative AI Powered Industrial Digital Design</a><a aria-hidden="true" class="leve2 tocs-link" data-num="2" href="#演讲">演讲</a></div></div><div class="h1wrap-body"><div class="wrap h2body-exist"><div class="wrap-header h2wrap"><h2 id="技术展区"><a aria-hidden="true" tabindex="-1" href="#技术展区"><span class="icon icon-link"></span></a>技术展区</h2><div class="wrap-body">
+</div></div><div class="h2wrap-body"><div class="wrap h3body-exist col-span-2 row-span-3"><div class="wrap-header h3wrap"><h3 id="中国白云体验-多智能体德化白瓷科普white-from-china-experience-on-cloud"><a aria-hidden="true" tabindex="-1" href="#中国白云体验-多智能体德化白瓷科普white-from-china-experience-on-cloud"><span class="icon icon-link"></span></a>中国白，云体验—— 多智能体德化白瓷科普<br>White from China, Experience on Cloud</h3><div class="wrap-body">
+<!--rehype:wrap-class=col-span-2 row-span-3-->
+<h4 id="走向世界的中国白blanc-de-chine-going-global"><a aria-hidden="true" tabindex="-1" href="#走向世界的中国白blanc-de-chine-going-global"><span class="icon icon-link"></span></a>走向世界的中国白<br>Blanc de Chine Going Global</h4>
+<p>德化白瓷源于福建省德化县，拥有悠久的历史和独特的工艺特色，是中国国家地理标志产品。“中国白”(Blanc de Chine) 是法国人对明代德化白瓷的赞誉。</p>
+<p>德化瓷器始于宋代，距今已有1000余年的历史。明代时逐渐形成自己的技法和风格，进而取得了很大发展，成为中国著名的一种外销瓷，并在以后数百年间名扬海外，深深影响了“海上丝绸之路”。德化白瓷造型多样，既有实用性的日用器皿，也有观赏性的艺术品，其中以人物雕塑最为著名。它以当地优质的高岭土为原料，制作工艺十分考究，包括陶坯制作、釉料配制、窑炉烧制等多个环节，每一个环节都需要极高的技术水平和丰富的经验积累。</p>
+<p>1996年，国务院发展研究中心将德化命名为“中国陶瓷之乡”。2015年，联合国教科文组织世界手工艺理事会授予德化县“世界陶瓷之都”的称号。2024年3月，“中国白 •·德化瓷”国际巡展在美国纽约联合国总部成功举办。</p>
+<h4 id="采用多智能体的科普体验exploration-experience-featuring-multi-agent"><a aria-hidden="true" tabindex="-1" href="#采用多智能体的科普体验exploration-experience-featuring-multi-agent"><span class="icon icon-link"></span></a>采用多智能体的科普体验<br>Exploration Experience Featuring Multi-Agent</h4>
+<p>智能体 (agent) 是能够感知环境、做出决策并采取行动以实现特定目标的自主软件或硬件实体，是大语言模型 (LLM) 应用的高级形态。多智能体德化瓷科普体验采用“谁是卧底”游戏的规则，由基于LLM的多个智能体扮演玩家，通过云端模型调用、提示词组装、上下文记忆等工程手段，驱动多智能体围绕“德化白瓷”主题的秘密词描述特征、思考投票，最终找到“卧底”。</p>
+<p>本展示融合了亚马逊云科技在生成式AI技术方面的技术能力与中央美术学院在中国传统艺术领域的专业知识，基于Amazon Bedrock上的Claude3模型，为传播中国传统文化探索新的科普形式，也是双方在生成式AI领域继去年的“皮影随形”展示后又一合作成果。在游戏过程中，您可以引导智能体的思考方向，观察它们的思考行为，从而了解到德化白瓷的相关基础知识，以及生成式AI解决复杂任务的思维过程。</p>
+<h4 id="游戏规则game-rules"><a aria-hidden="true" tabindex="-1" href="#游戏规则game-rules"><span class="icon icon-link"></span></a>游戏规则<br>Game Rules</h4>
+<ul>
+<li>游戏一共有6名玩家，均由基于大语言模型 (LLM) 的智能体 (agent) 扮演。</li>
+<li>玩家分为两组，1名是“卧底”，其余5名是“普通玩家”，玩家之间都不知道彼此身份。</li>
+<li>游戏给出两个意思相近的词，与瓷器主题相关。普通玩家分到1个，卧底分到另1个。</li>
+<li>游戏开始后逐轮进行，每轮分为描述和投票两个环节。每个玩家需要用一句话描述自己得到的主题词，但不能说出词本身；之后，大家投票选出一个出局的对象，最终找出谁是“卧底”。</li>
+<li>各智能体根据预设的游戏规则和游戏策略，基于大模型独立思考、观察其他智能体的描述，并决定自己的行动。在第一轮对话中，您可以为其中一个智能体选择思考的角度，引导它的思考行为。</li>
+</ul>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="释放云端生图能力image-generation-on-the-cloud-with-extension-for-stable-diffusion"><a aria-hidden="true" tabindex="-1" href="#释放云端生图能力image-generation-on-the-cloud-with-extension-for-stable-diffusion"><span class="icon icon-link"></span></a>释放云端生图能力<br>Image Generation on the Cloud with Extension for Stable Diffusion</h3><div class="wrap-body">
+<p>Stable Diffusion插件解决方案 (Extension for Stable Diffusion on Amazon Web Services) 帮助客户将基于Stable Diffusion web UI的模型训练、推理和调优等任务负载从本地服务器迁移至Amazon SageMaker，利用云上弹性资源加速生图工作，避免单机部署的性能瓶颈。该方案支持txt2img、img2img、ControlNet、ComfyUI、基于Kohya的LoRa模型训练、面向企业应用的多用户管理等功能，并提供web UI和API调用两种使用方式，满足客户多样化的使用场景需求。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="轻松切换到amazon-bedrock上的模型easy-llms-migration-with-bedrock-access-gateway"><a aria-hidden="true" tabindex="-1" href="#轻松切换到amazon-bedrock上的模型easy-llms-migration-with-bedrock-access-gateway"><span class="icon icon-link"></span></a>轻松切换到Amazon Bedrock上的模型<br>Easy LLMs Migration with Bedrock Access Gateway</h3><div class="wrap-body">
+<p>如果您已经在使用OpenAI的API或SDK开发生成式AI应用，想快速切换到Amazon Bedrock但不想修改代码，或者您想使用一些不直接支持Amazon Bedrock的开源工具，但又不想修改其代码，那么可以使用Bedrock Access Gateway解决方案。</p>
+<p>它采用无服务器架构，支持一键部署，提供了兼容OpenAI API的代理功能，使用户不需要修改任何原应用的代码，就可以把OpenAI API的调用转发到Amazon Bedrock，从而快速体验包括Claude3系列模型在内的多种LLM的优秀能力。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="提示词自动转化与优化automatic-prompt-transformation-and-optimization"><a aria-hidden="true" tabindex="-1" href="#提示词自动转化与优化automatic-prompt-transformation-and-optimization"><span class="icon icon-link"></span></a>提示词自动转化与优化<br>Automatic Prompt Transformation and Optimization</h3><div class="wrap-body">
+<p>亚马逊云科技研发的开源工具Claude Prompt Generator利用大语言模型，并根据Anthropic公司关于提示词的最佳实践，帮助客户快速将面向GPT的提示词转换和改进为适用于Claude3模型的高质量提示词，并提供效果优化功能，进一步优化提示词在客户场景中的效果，从而协助客户快速实现生成式AI应用针对Claude3模型的适配。该方案提供了一套Python代码和Web应用界面，便于使用者直接操作，或针对批量操作定制。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="高效采集处理与分析业务数据efficient-collection-processing-and-analysis-of-business-data"><a aria-hidden="true" tabindex="-1" href="#高效采集处理与分析业务数据efficient-collection-processing-and-analysis-of-business-data"><span class="icon icon-link"></span></a>高效采集、处理与分析业务数据<br>Efficient Collection, Processing, and Analysis of Business Data</h3><div class="wrap-body">
+<p>日志通解决方案提供一站式的日志管理与分析功能，基于Amazon OpenSearch等托管服务构建，支持摄取十余种亚马逊云科技服务日志和应用程序日志，能有效地提高日志采集、处理、可视化等场景的工作效率。它提供网页控制台，您不需要编写代码即可轻松创建日志摄取与处理管道，并通过可视化仪表板分析日志数据。</p>
+<p>点击流分析解决方案帮助客户轻松收集、处理、分析和可视化来自网页和App的点击流数据，针对特定用户行为或事件快速构建起数据摄取与分析管道，从而精准地开展用户行为分析、产品分析、营销分析，创造业务价值。它提供多平台的前端埋点SDK，图形化的数据管道配置界面，以及开箱即用的可视化报表，并确保客户对埋点数据有完全的控制权。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="敏感数据保护解决方案"><a aria-hidden="true" tabindex="-1" href="#敏感数据保护解决方案"><span class="icon icon-link"></span></a>敏感数据保护解决方案</h3><div class="wrap-body">
+<p>敏感数据保护解决方案是为企业客户提供的一个亚马逊云科技解决方案，旨在帮助客户自动化识别敏感数据并在统一平台上管理数据资产。该解决方案提供了一个网页应用程序，可跨多个亚马逊云科技账户发现和管理敏感数据，为客户实现数据安全和合规提供技术支持。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="cloudfront预热工具"><a aria-hidden="true" tabindex="-1" href="#cloudfront预热工具"><span class="icon icon-link"></span></a>Cloudfront预热工具</h3><div class="wrap-body">
+<p>该解决方案提供用户友好型API，可简化在所选Cloudfront边缘位置预热内容的工作。客户只需调用一次API，即可在数百个边缘位置预热数千个文件。此外，该解决方案还提供清晰的预热任务跟踪，让您轻松监控进度，并在任务完成后查看综合报告。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="端到端点击流分析"><a aria-hidden="true" tabindex="-1" href="#端到端点击流分析"><span class="icon icon-link"></span></a>端到端点击流分析</h3><div class="wrap-body">
+<p>点击流分析解决方案让您能够轻松收集、摄取、分析和可视化来自您的网站和移动应用程序的点击流数据。通过这个解决方案，您可以快速配置和部署适合您业务和技术需求的数据管道。该解决方案提供用户行为收集专用的 SDK，自动收集常见事件，并提供易于使用的 API 上报自定义事件，使您能够轻松将应用程序和网站中的用户行为数据发送到您的亚马逊云科技账号中。此外，该解决方案还提供一组预装的仪表板，可视化用户生命周期的关键指标，以及先进的探索分析模型，可以更深入地了解用户行为和目标转换，帮助您快速了解用户情况，找到业务增长的机会。</p>
+</div></div></div></div></div><div class="wrap h2body-exist"><div class="wrap-header h2wrap"><h2 id="行业展区"><a aria-hidden="true" tabindex="-1" href="#行业展区"><span class="icon icon-link"></span></a>行业展区</h2><div class="wrap-body">
+</div></div><div class="h2wrap-body"><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="旅游行业智能数据分析助手guidance-for-hospitality-generative-bi-assistant"><a aria-hidden="true" tabindex="-1" href="#旅游行业智能数据分析助手guidance-for-hospitality-generative-bi-assistant"><span class="icon icon-link"></span></a>旅游行业智能数据分析助手<br>Guidance for Hospitality Generative BI Assistant</h3><div class="wrap-body">
+<p>在旅游行业的数据与业务智能分析的场景中，为了分析业务和经营数据，分析人员经常需要编写多轮、复杂的查询语句以获得业务洞察，同时对于报表外的数据难以进行有效分析。某客户针对该场景，与亚马逊云科技基于<strong>零售行业智能数据分析助手解决方案指南</strong>一起构建旅游行业智能数据分析助手。借助大语言模型强大的自然语言处理能力，非技术人员也可以通过自然语言对零售环节采购、销售等数据进行查询和分析，不需要掌握SQL等专业技能，帮助业务人员获取数据洞察、提升决策效率。该指南基于Amazon Bedrock、Amazon OpenSearch、Amazon DynamoDB等服务构建。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="基于生成式ai的游戏运营分析解决方案指南guidance-for-game-operation-analysis-with-generative-ai"><a aria-hidden="true" tabindex="-1" href="#基于生成式ai的游戏运营分析解决方案指南guidance-for-game-operation-analysis-with-generative-ai"><span class="icon icon-link"></span></a>基于生成式AI的游戏运营分析解决方案指南<br>Guidance for Game Operation Analysis with Generative AI</h3><div class="wrap-body">
+<p>在游戏数据分析场景下，游戏运营人员，开发策划人员需要从历史用户事件信息中获得洞察，复杂的表结构和字段含义定义，导致业务团队只能依赖对表和字段结构熟悉的数据团队编写SQL 才能实现个性化的统计分析查询，效率低下。</p>
+<p>亚马逊云科技面对该场景打造基于生成式AI的游戏运营分析解决方案指南，用户可以直接使用自然语言提出数据分析任务请求，指南将理解用户意图，并生成合适的SQL查询语句，辅助用户进行数据探索和个性化指标查询。该指南基于Amazon Bedrock、Amazon Redshift、Amazon QuickSight等服务构建。</p>
+</div></div></div><div class="wrap h3body-not-exist"><div class="wrap-header h3wrap"><h3 id="生成式ai助力工业设计解决方案指南guidance-for-generative-ai-powered-industrial-digital-design"><a aria-hidden="true" tabindex="-1" href="#生成式ai助力工业设计解决方案指南guidance-for-generative-ai-powered-industrial-digital-design"><span class="icon icon-link"></span></a>生成式AI助力工业设计解决方案指南<br>Guidance for Generative AI Powered Industrial Digital Design</h3><div class="wrap-body">
+<p>在制造业的工程设计场景下，设计师面临资源受限、团队协作不够流畅以及创意设计过程中高度依赖员工而导致的项目延期等问题。亚马逊云科技构建了生成式AI助力工程设计解决方案指南，使工程设计人员和科学家能够在云上运行传统工作负载，避免了单机性能不足和文件泄露的风险，实现了高效、安全、可控的云上工程设计环境，更可借助Stable Diffusion和Comfy UI构建AI生图工作流。此外，还可以与企业的用户身份系统或管理工作流结合，自动化设计环境申请和软件分发，减少IT运维工作量，优化运营质量。该指南基于Amazon SageMaker、Amazon EC2、Amazon FSx等服务构建。</p>
+</div></div></div></div></div><div class="wrap h2body-not-exist"><div class="wrap-header h2wrap"><h2 id="演讲"><a aria-hidden="true" tabindex="-1" href="#演讲"><span class="icon icon-link"></span></a>演讲</h2><div class="wrap-body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="show-header"><thead><tr><th>主题/主讲人</th><th>简介</th><th>时间/场地</th></tr></thead><tbody><tr><td><strong>提升RAG应用性能的知识ETL工程</strong><br><br>Ning Lv</td><td>知识库是基于RAG技术的大语言模型 (LLM) 应用的核心组件之一。面向知识的ETL工程，通过将企业常见文档的内容提取为Markdown格式、借助LLM的知识增强、基于语义和传统切分的向量化等环节，构建高质量的知识库，提升LLM应用在知识召回和LLM输出上的准确性和完整性，降低生产落地难度。</td><td>5/30, 13:20-13:25<br><br>Lightning Talk (616)</td></tr><tr><td><strong>重塑云上开发体验，你需要如何用好这些“秘密武器”</strong><br><br>Jingyi Niu</td><td>Amazon BedRock、Amazon Q等系列产品相继可用，单一产品能够提升开发效率，而真正做到重塑云上体验，还需打好这套“组合拳”。</td><td>5/30, 13:40-14:10<br><br>开发者大讲堂</td></tr><tr><td><strong>构建高性能和高可靠性Serverless应用的最佳实践</strong><br><br>Mengxin Zhu</td><td>云上无服务器化（Serverless）软件产品具有高度可扩展性和可靠性，能够迅速响应企业复杂多变的业务需求。本次演讲将结合亚马逊云科技多年来研发产品级解决方案的工程化经验，探讨如何利用多种 Serverless 服务及事件驱动架构(EDA)，构建支持多分区、多区域在线应用程序的最佳实践，内容涉及架构设计、服务选择、实施细节等，旨在帮助您高效构建下一代可靠灵活的在线应用程序。</td><td>5/30, 14:40-15:10<br><br>全栈Serverless (515)</td></tr></tbody></table>
+<!--rehype:className=show-header-->
+
+</div></div><div class="h2wrap-body"></div></div></div></div><footer class="footer-wrap"><footer class="max-container">Copyright (c) <b>2024</b> 亚马逊云科技大中华区解决方案研发中心 (CSDC)<br><br>君子生非异也，善假于物也</footer></footer><script src="..\/data.js?v=1.5.3" defer></script><script src="..\/js/fuse.min.js?v=1.5.3" defer></script><script src="..\/js/main.js?v=1.5.3" defer></script><div id="mysearch"><div class="mysearch-box"><div class="mysearch-input"><div><svg xmlns="http://www.w3.org/2000/svg" height="1em" width="1em" viewBox="0 0 18 18">
+  <path fill="currentColor" d="M17.71,16.29 L14.31,12.9 C15.4069846,11.5024547 16.0022094,9.77665502 16,8 C16,3.581722 12.418278,0 8,0 C3.581722,0 0,3.581722 0,8 C0,12.418278 3.581722,16 8,16 C9.77665502,16.0022094 11.5024547,15.4069846 12.9,14.31 L16.29,17.71 C16.4777666,17.8993127 16.7333625,18.0057983 17,18.0057983 C17.2666375,18.0057983 17.5222334,17.8993127 17.71,17.71 C17.8993127,17.5222334 18.0057983,17.2666375 18.0057983,17 C18.0057983,16.7333625 17.8993127,16.4777666 17.71,16.29 Z M2,8 C2,4.6862915 4.6862915,2 8,2 C11.3137085,2 14,4.6862915 14,8 C14,11.3137085 11.3137085,14 8,14 C4.6862915,14 2,11.3137085 2,8 Z"></path>
+</svg><input id="mysearch-input" type="search" placeholder="搜索" autocomplete="off"><div class="mysearch-clear"></div></div><button id="mysearch-close" type="button">搜索</button></div><div class="mysearch-result"><div id="mysearch-menu"></div><div id="mysearch-content"></div></div></div></div></body>
+</html>
+
